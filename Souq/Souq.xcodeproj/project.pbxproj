@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A6AC2937012140B56E84F69 /* libPods-Souq.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97F5334BAC80EA2FD5D7E523 /* libPods-Souq.a */; };
 		7E56A4102120968700A3421A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E56A40F2120968700A3421A /* AppDelegate.swift */; };
 		7E56A4122120968700A3421A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E56A4112120968700A3421A /* HomeViewController.swift */; };
 		7E56A4152120968700A3421A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E56A4132120968700A3421A /* Main.storyboard */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B35363E2712DA4B40E1678F /* Pods-Souq.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Souq.release.xcconfig"; path = "Pods/Target Support Files/Pods-Souq/Pods-Souq.release.xcconfig"; sourceTree = "<group>"; };
+		3D9A656426942AC30F0B5ECD /* Pods-Souq.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Souq.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Souq/Pods-Souq.debug.xcconfig"; sourceTree = "<group>"; };
 		7E56A40C2120968700A3421A /* Souq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Souq.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E56A40F2120968700A3421A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E56A4112120968700A3421A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -28,6 +31,7 @@
 		7E56A41E2120968A00A3421A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E56A4452120B35200A3421A /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		7E56A4462120B35200A3421A /* GE Dinar One Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GE Dinar One Medium.ttf"; sourceTree = "<group>"; };
+		97F5334BAC80EA2FD5D7E523 /* libPods-Souq.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Souq.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +39,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A6AC2937012140B56E84F69 /* libPods-Souq.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		680BB4A566094339443DABC4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3D9A656426942AC30F0B5ECD /* Pods-Souq.debug.xcconfig */,
+				2B35363E2712DA4B40E1678F /* Pods-Souq.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		7E56A4032120968700A3421A = {
 			isa = PBXGroup;
 			children = (
 				7E56A40E2120968700A3421A /* Souq */,
 				7E56A40D2120968700A3421A /* Products */,
+				680BB4A566094339443DABC4 /* Pods */,
+				8639A4182871850CAA80E6D9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,6 +89,14 @@
 			path = Souq;
 			sourceTree = "<group>";
 		};
+		8639A4182871850CAA80E6D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				97F5334BAC80EA2FD5D7E523 /* libPods-Souq.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -80,6 +104,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7E56A4212120968A00A3421A /* Build configuration list for PBXNativeTarget "Souq" */;
 			buildPhases = (
+				D38C4595126D5800E215FCF7 /* [CP] Check Pods Manifest.lock */,
 				7E56A4082120968700A3421A /* Sources */,
 				7E56A4092120968700A3421A /* Frameworks */,
 				7E56A40A2120968700A3421A /* Resources */,
@@ -140,6 +165,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D38C4595126D5800E215FCF7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Souq-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7E56A4082120968700A3421A /* Sources */ = {
@@ -290,6 +336,7 @@
 		};
 		7E56A4222120968A00A3421A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D9A656426942AC30F0B5ECD /* Pods-Souq.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -307,6 +354,7 @@
 		};
 		7E56A4232120968A00A3421A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B35363E2712DA4B40E1678F /* Pods-Souq.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
