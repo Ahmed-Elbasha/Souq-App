@@ -16,6 +16,7 @@
 		7E56A41D2120968A00A3421A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E56A41B2120968A00A3421A /* LaunchScreen.storyboard */; };
 		7E56A4472120B35200A3421A /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7E56A4452120B35200A3421A /* Montserrat-Regular.ttf */; };
 		7E56A4482120B35200A3421A /* GE Dinar One Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7E56A4462120B35200A3421A /* GE Dinar One Medium.ttf */; };
+		7E56A44A2120F67F00A3421A /* APIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E56A4492120F67F00A3421A /* APIConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		7E56A41E2120968A00A3421A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E56A4452120B35200A3421A /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		7E56A4462120B35200A3421A /* GE Dinar One Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GE Dinar One Medium.ttf"; sourceTree = "<group>"; };
+		7E56A4492120F67F00A3421A /* APIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfiguration.swift; sourceTree = "<group>"; };
 		97F5334BAC80EA2FD5D7E523 /* libPods-Souq.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Souq.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -85,6 +87,7 @@
 				7E56A41B2120968A00A3421A /* LaunchScreen.storyboard */,
 				7E56A41E2120968A00A3421A /* Info.plist */,
 				7E56A4162120968700A3421A /* Souq.xcdatamodeld */,
+				7E56A4492120F67F00A3421A /* APIConfiguration.swift */,
 			);
 			path = Souq;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				7E56A4122120968700A3421A /* HomeViewController.swift in Sources */,
 				7E56A4102120968700A3421A /* AppDelegate.swift in Sources */,
 				7E56A4182120968700A3421A /* Souq.xcdatamodeld in Sources */,
+				7E56A44A2120F67F00A3421A /* APIConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
