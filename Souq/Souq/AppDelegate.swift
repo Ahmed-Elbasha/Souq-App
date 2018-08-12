@@ -9,6 +9,12 @@
 import UIKit
 import CoreData
 
+extension UIApplication {
+    var statusBarView: UIView? {
+        return value(forKey: "statusBar") as? UIView
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -16,7 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let statusBarBackGround = UIColor(red: 0.18, green: 0.24, blue: 0.30, alpha: 1.0)
+        UIApplication.shared.statusBarView?.backgroundColor = statusBarBackGround
         return true
     }
 
