@@ -15,6 +15,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var categories = [Category]()
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 100
     }
