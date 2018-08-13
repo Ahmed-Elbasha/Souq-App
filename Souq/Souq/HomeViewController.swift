@@ -34,14 +34,33 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func fetchCategoriesData(handler: @escaping(_ status: Bool) -> ()) {
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
+        let categoryEntity = NSEntityDescription.entity(forEntityName: "Category", in: managedContext)
+        
         Alamofire.request(generateApiUrl(usingCategoryId: 0, andCountryID: 1)).responseJSON { (response) in
             guard let categories = response.result.value as? [Dictionary<String, AnyObject>] else {return}
             for category in categories {
+                let newCategory = NSManagedObject(entity: categoryEntity!, insertInto: managedContext)
+                
                 let categoryId = category["Id"] as! Int32
+                newCategory.setValue(categoryId, forKey: "categoryId")
                 let englishTitle = category["TitleEN"] as! String
+                newCategory.setValue(englishTitle, forKey: "englishTitle")
                 let arabicTitle = category["TitleAR"] as! String
+                newCategory.setValue(arabicTitle, forKey: "arabicTitle")
                 let photoUrl = category["Photo"] as! String
+                newCategory.setValue(photoUrl, forKey: "photoUrl")
                 let productCount = category["ProductCount"] as! String
+                newCategory.setValue(productCount, forKey: "productCount")
+                
+                do {
+                    try managedContext.save()
+                    print("Data Saved Successfully")
+                    handler(true)
+                } catch {
+                    print("Operation Failed.. \(error.localizedDescription)")
+                    handler(false)
+                }
             }
         }
     }
