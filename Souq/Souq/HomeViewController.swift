@@ -30,7 +30,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        <#code#>
     }
     
     func fetchCategoriesData(handler: @escaping(_ status: Bool) -> ()) {
@@ -65,13 +64,47 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
+    func storeCategoriesIntoArray(completion: (_ status: Bool) -> () ) {
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
+        let fetchRequest = NSFetchRequest<Category>(entityName: "Category")
+        
+        do {
+            categories = try managedContext.fetch(fetchRequest)
+            
+            for category in categories {
+                let categoryImageUrl = category.photoUrl
+                imageUrls.append(categoryImageUrl!)
+            }
+            
+            print("Data Fetched Successfully")
+            completion(true)
+        } catch {
+            print("Operation Failed. \(error.localizedDescription)")
+            completion(false)
+        }
+    }
+    
+    func performDataFetch() {
+        fetchCategoriesData { (complete) in
+            if complete {
+                self.storeCategoriesIntoArray(completion: { (complete) in
+                    if complete {}
+                })
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         var preferredStatusBarStyle: UIStatusBarStyle = .lightContent
         setNeedsStatusBarAppearanceUpdate()
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        performDataFetch()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
