@@ -24,21 +24,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EdP-nX-yIQ">
-                                <rect key="frame" x="0.0" y="20" width="375" height="73"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="55"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_bar_logo" translatesAutoresizingMaskIntoConstraints="NO" id="TEC-2j-64K">
-                                        <rect key="frame" x="162" y="18" width="50" height="37"/>
+                                        <rect key="frame" x="162.5" y="0.0" width="50" height="55"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.18431372549019609" green="0.24313725490196078" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="TEC-2j-64K" firstAttribute="centerX" secondItem="EdP-nX-yIQ" secondAttribute="centerX" id="8zM-qj-k14"/>
                                     <constraint firstItem="TEC-2j-64K" firstAttribute="centerY" secondItem="EdP-nX-yIQ" secondAttribute="centerY" id="92M-q2-FM3"/>
-                                    <constraint firstAttribute="height" constant="73" id="MSz-hX-SXF"/>
+                                    <constraint firstAttribute="height" constant="55" id="MSz-hX-SXF"/>
+                                    <constraint firstAttribute="bottom" secondItem="TEC-2j-64K" secondAttribute="bottom" id="NSk-P5-77N"/>
+                                    <constraint firstItem="TEC-2j-64K" firstAttribute="top" secondItem="EdP-nX-yIQ" secondAttribute="top" id="XBB-TD-3IW"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pA0-tE-N4O">
-                                <rect key="frame" x="0.0" y="93" width="375" height="574"/>
+                                <rect key="frame" x="0.0" y="75" width="375" height="592"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gYi-4N-BVF">
                                     <size key="itemSize" width="172" height="158"/>

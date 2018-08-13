@@ -19,6 +19,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     var categories = [Category]()
     var imageUrls = [String]()
+    var screenWidth: CGFloat!
+    var screenHeight: CGFloat!
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 100
@@ -98,6 +100,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         super.viewDidLoad()
         var preferredStatusBarStyle: UIStatusBarStyle = .lightContent
         setNeedsStatusBarAppearanceUpdate()
+        screenWidth = self.view.frame.origin.x
+        screenHeight = self.view.frame.origin.y
+        setCollectionViewLayout(collectionView: collectionView, itemWidth: 182, itemHeight: 158)
     }
     
     override func viewWillAppear(_ animated: Bool) {
