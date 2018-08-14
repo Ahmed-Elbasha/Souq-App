@@ -16,7 +16,19 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     var fullCategoryLabelValue = ""
     
-    func configureCell(withCategory category: Category, Resource resource: ImageResource, andIsArabic: Bool) {
+    func configureCell(withCategory category: Category, Resource resource: ImageResource, andIsArabic isArabic: Bool) {
+        var categoryTitle = ""
+        let itemCount = category.productCount
         
+        if isArabic == false {
+                categoryTitle = category.englishTitle!
+                categoryLabel.text = "\(categoryTitle). (\(itemCount ?? "0"))"
+                categoryImageImageView.kf.setImage(with: resource)
+
+        } else {
+                categoryTitle = category.arabicTitle!
+                categoryLabel.text = "\(categoryTitle). (\(itemCount ?? "0"))"
+                categoryImageImageView.kf.setImage(with: resource)
+            }
+        }
     }
-}

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4A6AC2937012140B56E84F69 /* libPods-Souq.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97F5334BAC80EA2FD5D7E523 /* libPods-Souq.a */; };
+		7E499D6821235AA6005EF290 /* SubCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E499D6721235AA6005EF290 /* SubCategoriesViewController.swift */; };
 		7E56A4102120968700A3421A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E56A40F2120968700A3421A /* AppDelegate.swift */; };
 		7E56A4122120968700A3421A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E56A4112120968700A3421A /* HomeViewController.swift */; };
 		7E56A4152120968700A3421A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E56A4132120968700A3421A /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		2B35363E2712DA4B40E1678F /* Pods-Souq.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Souq.release.xcconfig"; path = "Pods/Target Support Files/Pods-Souq/Pods-Souq.release.xcconfig"; sourceTree = "<group>"; };
 		3D9A656426942AC30F0B5ECD /* Pods-Souq.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Souq.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Souq/Pods-Souq.debug.xcconfig"; sourceTree = "<group>"; };
+		7E499D6721235AA6005EF290 /* SubCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoriesViewController.swift; sourceTree = "<group>"; };
 		7E56A40C2120968700A3421A /* Souq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Souq.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E56A40F2120968700A3421A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E56A4112120968700A3421A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				7E74BF502121A36E007C909E /* collectionViewLayoutSetup.swift */,
 				7E74BF522121E91F007C909E /* CategoryCollectionViewCell.swift */,
 				7E74BF5C2121EEAA007C909E /* Localizable.strings */,
+				7E499D6721235AA6005EF290 /* SubCategoriesViewController.swift */,
 			);
 			path = Souq;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				7E56A4102120968700A3421A /* AppDelegate.swift in Sources */,
 				7E56A4182120968700A3421A /* Souq.xcdatamodeld in Sources */,
 				7E56A44A2120F67F00A3421A /* APIConfiguration.swift in Sources */,
+				7E499D6821235AA6005EF290 /* SubCategoriesViewController.swift in Sources */,
 				7E74BF532121E91F007C909E /* CategoryCollectionViewCell.swift in Sources */,
 				7E74BF512121A36E007C909E /* collectionViewLayoutSetup.swift in Sources */,
 			);

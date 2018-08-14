@@ -29,11 +29,40 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as? CategoryCollectionViewCell else {return UICollectionViewCell()}
+        let currentCategory = categories[indexPath.row]
+        let currentImageUrl = imageUrls[indexPath.row]
+        let imageResource = ImageResource(downloadURL: URL(string: currentImageUrl)!)
+        var categoryTitle = ""
+        let itemCount = currentCategory.productCount
+        
+        if isArabic == false {
+            if cell.isKind(of: UICollectionViewCell.self) {
+                categoryTitle = currentCategory.englishTitle!
+                cell.categoryLabel.text = "\(categoryTitle). (\(itemCount ?? "0"))"
+                cell.categoryImageImageView.kf.setImage(with: imageResource)
+            } else if cell.isKind(of: UICollectionViewCell.self) {
+                cell.configureCell(withCategory: currentCategory, Resource: imageResource, andIsArabic: isArabic)
+            }
+        } else {
+            if cell.isKind(of: UICollectionViewCell.self) {
+                categoryTitle = currentCategory.arabicTitle!
+                cell.categoryLabel.text = "\(categoryTitle). (\(itemCount ?? "0"))"
+                cell.categoryImageImageView.kf.setImage(with: imageResource)
+            } else if cell.isKind(of: UICollectionViewCell.self) {
+                cell.configureCell(withCategory: currentCategory, Resource: imageResource, andIsArabic: isArabic)
+            }
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let webApiUrl = generateApiUrl(usingCategoryId: Int32(indexPath.row), andCountryID: countryId)
+        let category = categories[indexPath.row]
+        
+        let subCategoriesVC = storyboard?.instantiateViewController(withIdentifier: "SubCategoriesViewController") as? SubCategoriesViewController
+        subCategoriesVC?.initWithData(webApiUrl: webApiUrl, isArabic: isArabic, andCategory: category)
+        self.present(subCategoriesVC!, animated: true, completion: nil)
     }
     
     func fetchCategoriesData(webApiUrl: String, handler: @escaping(_ status: Bool) -> ()) {
@@ -110,14 +139,15 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let webApiUrl = generateApiUrl(usingCategoryId: 0, andCountryID: 1)
         performDataFetch(webApiUrl: webApiUrl)
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     @IBAction func languageButtonPressed(_ sender: Any) {
+        if languageButton.currentTitle == "عربي" && isArabic == false  {
+            languageButton.setTitle("English", for: UIControlState.normal)
+            isArabic = true
+        } else if languageButton.currentTitle == "English" && isArabic == true {
+            languageButton.setTitle("عربي", for: UIControlState.normal)
+            isArabic = false
+        }
     }
-    
 }
 
