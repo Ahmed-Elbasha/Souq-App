@@ -29,14 +29,28 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_bar_logo" translatesAutoresizingMaskIntoConstraints="NO" id="TEC-2j-64K">
                                         <rect key="frame" x="162.5" y="0.0" width="50" height="55"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nq0-fD-v2A">
+                                        <rect key="frame" x="329" y="12" width="31" height="30"/>
+                                        <state key="normal" title="عربي">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="languageButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cxC-aY-qkb"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.18431372549019609" green="0.24313725490196078" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="TEC-2j-64K" firstAttribute="centerX" secondItem="EdP-nX-yIQ" secondAttribute="centerX" id="8zM-qj-k14"/>
                                     <constraint firstItem="TEC-2j-64K" firstAttribute="centerY" secondItem="EdP-nX-yIQ" secondAttribute="centerY" id="92M-q2-FM3"/>
+                                    <constraint firstItem="nq0-fD-v2A" firstAttribute="centerY" secondItem="EdP-nX-yIQ" secondAttribute="centerY" id="9rh-er-qXr"/>
+                                    <constraint firstItem="nq0-fD-v2A" firstAttribute="top" secondItem="EdP-nX-yIQ" secondAttribute="top" constant="12" id="Jzc-rY-Fvl"/>
                                     <constraint firstAttribute="height" constant="55" id="MSz-hX-SXF"/>
+                                    <constraint firstAttribute="trailing" secondItem="nq0-fD-v2A" secondAttribute="trailing" constant="15" id="Ma1-rd-Rai"/>
                                     <constraint firstAttribute="bottom" secondItem="TEC-2j-64K" secondAttribute="bottom" id="NSk-P5-77N"/>
+                                    <constraint firstItem="nq0-fD-v2A" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EdP-nX-yIQ" secondAttribute="leading" constant="20" symbolic="YES" id="O3R-dQ-UhV"/>
                                     <constraint firstItem="TEC-2j-64K" firstAttribute="top" secondItem="EdP-nX-yIQ" secondAttribute="top" id="XBB-TD-3IW"/>
+                                    <constraint firstAttribute="bottom" secondItem="nq0-fD-v2A" secondAttribute="bottom" constant="13" id="rKq-bU-r8F"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pA0-tE-N4O">
@@ -49,7 +63,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categoryCell" id="1uP-Wl-xsu">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categoryCell" id="1uP-Wl-xsu" customClass="CategoryCollectionViewCell" customModule="Souq" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="158"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -84,6 +98,10 @@
                                             <constraint firstAttribute="trailing" secondItem="dQR-rj-PpQ" secondAttribute="trailing" id="pgy-Lc-P0a"/>
                                         </constraints>
                                         <size key="customSize" width="180" height="158"/>
+                                        <connections>
+                                            <outlet property="categoryImageImageView" destination="dQR-rj-PpQ" id="6y7-mH-v3g"/>
+                                            <outlet property="categoryLabel" destination="TBP-AG-kvb" id="48Z-Im-ORn"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -106,6 +124,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="pA0-tE-N4O" id="zqL-Mq-Owg"/>
+                        <outlet property="languageButton" destination="nq0-fD-v2A" id="qCz-Od-20P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

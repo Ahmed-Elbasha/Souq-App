@@ -1,0 +1,6 @@
+
+/* Class = "UIButton"; normalTitle = "English"; ObjectID = "nq0-fD-v2A"; */
+"language_button_title" = "English";
+
+/* Class = "UILabel"; text = "Category is Here."; ObjectID = "TBP-AG-kvb"; */
+"category_label_text" = "Category is Here.";

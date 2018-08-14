@@ -18,6 +18,8 @@
 		7E56A4482120B35200A3421A /* GE Dinar One Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7E56A4462120B35200A3421A /* GE Dinar One Medium.ttf */; };
 		7E56A44A2120F67F00A3421A /* APIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E56A4492120F67F00A3421A /* APIConfiguration.swift */; };
 		7E74BF512121A36E007C909E /* collectionViewLayoutSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E74BF502121A36E007C909E /* collectionViewLayoutSetup.swift */; };
+		7E74BF532121E91F007C909E /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E74BF522121E91F007C909E /* CategoryCollectionViewCell.swift */; };
+		7E74BF5A2121EEAA007C909E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7E74BF5C2121EEAA007C909E /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +36,14 @@
 		7E56A4452120B35200A3421A /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		7E56A4462120B35200A3421A /* GE Dinar One Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GE Dinar One Medium.ttf"; sourceTree = "<group>"; };
 		7E56A4492120F67F00A3421A /* APIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfiguration.swift; sourceTree = "<group>"; };
+		7E6DF340212336CF000502DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7E74BF502121A36E007C909E /* collectionViewLayoutSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = collectionViewLayoutSetup.swift; sourceTree = "<group>"; };
+		7E74BF522121E91F007C909E /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		7E74BF542121ED34007C909E /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
+		7E74BF552121ED34007C909E /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		7E74BF572121ED91007C909E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		7E74BF5B2121EEAA007C909E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7E74BF5D2121EEAC007C909E /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		97F5334BAC80EA2FD5D7E523 /* libPods-Souq.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Souq.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -91,6 +100,8 @@
 				7E56A4162120968700A3421A /* Souq.xcdatamodeld */,
 				7E56A4492120F67F00A3421A /* APIConfiguration.swift */,
 				7E74BF502121A36E007C909E /* collectionViewLayoutSetup.swift */,
+				7E74BF522121E91F007C909E /* CategoryCollectionViewCell.swift */,
+				7E74BF5C2121EEAA007C909E /* Localizable.strings */,
 			);
 			path = Souq;
 			sourceTree = "<group>";
@@ -146,6 +157,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
 			);
 			mainGroup = 7E56A4032120968700A3421A;
 			productRefGroup = 7E56A40D2120968700A3421A /* Products */;
@@ -164,6 +176,7 @@
 			files = (
 				7E56A4482120B35200A3421A /* GE Dinar One Medium.ttf in Resources */,
 				7E56A4472120B35200A3421A /* Montserrat-Regular.ttf in Resources */,
+				7E74BF5A2121EEAA007C909E /* Localizable.strings in Resources */,
 				7E56A41D2120968A00A3421A /* LaunchScreen.storyboard in Resources */,
 				7E56A41A2120968A00A3421A /* Assets.xcassets in Resources */,
 				7E56A4152120968700A3421A /* Main.storyboard in Resources */,
@@ -202,6 +215,7 @@
 				7E56A4102120968700A3421A /* AppDelegate.swift in Sources */,
 				7E56A4182120968700A3421A /* Souq.xcdatamodeld in Sources */,
 				7E56A44A2120F67F00A3421A /* APIConfiguration.swift in Sources */,
+				7E74BF532121E91F007C909E /* CategoryCollectionViewCell.swift in Sources */,
 				7E74BF512121A36E007C909E /* collectionViewLayoutSetup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,6 +227,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				7E56A4142120968700A3421A /* Base */,
+				7E74BF542121ED34007C909E /* ar */,
+				7E74BF572121ED91007C909E /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -221,8 +237,19 @@
 			isa = PBXVariantGroup;
 			children = (
 				7E56A41C2120968A00A3421A /* Base */,
+				7E74BF552121ED34007C909E /* ar */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		7E74BF5C2121EEAA007C909E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7E74BF5B2121EEAA007C909E /* en */,
+				7E74BF5D2121EEAC007C909E /* ar */,
+				7E6DF340212336CF000502DC /* Base */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -232,6 +259,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -292,6 +320,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

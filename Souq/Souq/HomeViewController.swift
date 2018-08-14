@@ -16,14 +16,16 @@ let appDelegate = UIApplication.shared.delegate as? AppDelegate
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var languageButton: UIButton!
     
     var categories = [Category]()
     var imageUrls = [String]()
     var screenWidth: CGFloat!
     var screenHeight: CGFloat!
+    var isArabic: Bool = false
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 100
+        return categories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -34,11 +36,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     }
     
-    func fetchCategoriesData(handler: @escaping(_ status: Bool) -> ()) {
+    func fetchCategoriesData(webApiUrl: String, handler: @escaping(_ status: Bool) -> ()) {
         guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
         let categoryEntity = NSEntityDescription.entity(forEntityName: "Category", in: managedContext)
         
-        Alamofire.request(generateApiUrl(usingCategoryId: 0, andCountryID: 1)).responseJSON { (response) in
+        Alamofire.request(webApiUrl).responseJSON { (response) in
             guard let categories = response.result.value as? [Dictionary<String, AnyObject>] else {return}
             for category in categories {
                 let newCategory = NSManagedObject(entity: categoryEntity!, insertInto: managedContext)
@@ -86,8 +88,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
-    func performDataFetch() {
-        fetchCategoriesData { (complete) in
+    func performDataFetch(webApiUrl: String) {
+        fetchCategoriesData(webApiUrl: webApiUrl) { (complete) in
             if complete {
                 self.storeCategoriesIntoArray(completion: { (complete) in
                     if complete {}
@@ -98,8 +100,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var preferredStatusBarStyle: UIStatusBarStyle = .lightContent
-        setNeedsStatusBarAppearanceUpdate()
         screenWidth = self.view.frame.origin.x
         screenHeight = self.view.frame.origin.y
         setCollectionViewLayout(collectionView: collectionView, itemWidth: 182, itemHeight: 158)
@@ -107,7 +107,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        performDataFetch()
+        let webApiUrl = generateApiUrl(usingCategoryId: 0, andCountryID: 1)
+        performDataFetch(webApiUrl: webApiUrl)
     }
     
     override func didReceiveMemoryWarning() {
@@ -115,6 +116,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func languageButtonPressed(_ sender: Any) {
+    }
+    
 }
 
