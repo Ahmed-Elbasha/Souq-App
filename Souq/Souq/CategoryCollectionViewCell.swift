@@ -23,12 +23,12 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         if isArabic == false {
                 categoryTitle = category.englishTitle!
                 categoryLabel.text = "\(categoryTitle). (\(itemCount ?? "0"))"
-                categoryImageImageView.kf.setImage(with: resource)
+                categoryImageImageView.kf.setImage(with: resource, placeholder: UIImage(named: "cat_no_img"), options: nil, progressBlock: nil, completionHandler: nil)
 
         } else {
                 categoryTitle = category.arabicTitle!
                 categoryLabel.text = "\(categoryTitle). (\(itemCount ?? "0"))"
-                categoryImageImageView.kf.setImage(with: resource)
+                categoryImageImageView.kf.setImage(with: resource, placeholder: UIImage(named: "cat_no_img"), options: nil, progressBlock: nil, completionHandler: nil)
             }
         }
     }

@@ -40,7 +40,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             if cell.isKind(of: UICollectionViewCell.self) {
                 categoryTitle = currentCategory.englishTitle!
                 cell.categoryLabel.text = "\(categoryTitle). (\(itemCount ?? "0"))"
-                cell.categoryImageImageView.kf.setImage(with: imageResource)
+                cell.categoryImageImageView.kf.setImage(with: imageResource, placeholder: UIImage(named: "cat_no_img"), options: nil, progressBlock: nil, completionHandler: nil)
             } else if cell.isKind(of: UICollectionViewCell.self) {
                 cell.configureCell(withCategory: currentCategory, Resource: imageResource, andIsArabic: isArabic)
             }
@@ -48,7 +48,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             if cell.isKind(of: UICollectionViewCell.self) {
                 categoryTitle = currentCategory.arabicTitle!
                 cell.categoryLabel.text = "\(categoryTitle). (\(itemCount ?? "0"))"
-                cell.categoryImageImageView.kf.setImage(with: imageResource)
+                cell.categoryImageImageView.kf.setImage(with: imageResource, placeholder: UIImage(named: "cat_no_img"), options: nil, progressBlock: nil, completionHandler: nil)
             } else if cell.isKind(of: UICollectionViewCell.self) {
                 cell.configureCell(withCategory: currentCategory, Resource: imageResource, andIsArabic: isArabic)
             }
@@ -103,7 +103,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         do {
             categories = try managedContext.fetch(fetchRequest)
-            
             for category in categories {
                 let categoryImageUrl = category.photoUrl
                 imageUrls.append(categoryImageUrl!)
@@ -121,7 +120,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         fetchCategoriesData(webApiUrl: webApiUrl) { (complete) in
             if complete {
                 self.storeCategoriesIntoArray(completion: { (complete) in
-                    if complete {}
+                    if complete {
+                        self.collectionView.reloadData()
+                    }
                 })
             }
         }
@@ -148,6 +149,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             languageButton.setTitle("عربي", for: UIControlState.normal)
             isArabic = false
         }
+        collectionView.reloadData()
     }
 }
 
