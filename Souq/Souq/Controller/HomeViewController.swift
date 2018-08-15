@@ -22,8 +22,6 @@ class HomeViewController: UIViewController {
     // MARK: Class Attributes
     var categories = [Category]()
     var imageUrls = [String]()
-    var screenWidth: CGFloat!
-    var screenHeight: CGFloat!
     var isArabic: Bool = false
     
     var webApiUrl = ""
@@ -32,8 +30,6 @@ class HomeViewController: UIViewController {
     // MARK: View Controller Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        screenWidth = self.view.frame.origin.x
-        screenHeight = self.view.frame.origin.y
         setCollectionViewLayout(collectionView: collectionView, itemWidth: 182, itemHeight: 158)
     }
     

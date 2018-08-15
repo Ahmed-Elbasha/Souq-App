@@ -17,13 +17,18 @@ class SubCategoriesViewController: UIViewController {
     @IBOutlet weak var languageButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var categories = [Category]()
+    var imageUrls = [String]()
+    var screenWidth: CGFloat!
+    var screenHeight: CGFloat!
+    
     var webApiUrl = ""
     var isArabic: Bool = false
     var category: Category!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setCollectionViewLayout(collectionView: collectionView, itemWidth: screenWidth, itemHeight: screenHeight)
         // Do any additional setup after loading the view.
     }
 
