@@ -13,7 +13,7 @@ import CoreData
 
 let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
-class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class HomeViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var languageButton: UIButton!
@@ -23,47 +23,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var screenWidth: CGFloat!
     var screenHeight: CGFloat!
     var isArabic: Bool = false
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categories.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as? CategoryCollectionViewCell else {return UICollectionViewCell()}
-        let currentCategory = categories[indexPath.row]
-        let currentImageUrl = imageUrls[indexPath.row]
-        let imageResource = ImageResource(downloadURL: URL(string: currentImageUrl)!)
-        var categoryTitle = ""
-        let itemCount = currentCategory.productCount
-        
-        if isArabic == false {
-            if cell.isKind(of: UICollectionViewCell.self) {
-                categoryTitle = currentCategory.englishTitle!
-                cell.categoryLabel.text = "\(categoryTitle). (\(itemCount ?? "0"))"
-                cell.categoryImageImageView.kf.setImage(with: imageResource, placeholder: UIImage(named: "cat_no_img"), options: nil, progressBlock: nil, completionHandler: nil)
-            } else if cell.isKind(of: UICollectionViewCell.self) {
-                cell.configureCell(withCategory: currentCategory, Resource: imageResource, andIsArabic: isArabic)
-            }
-        } else {
-            if cell.isKind(of: UICollectionViewCell.self) {
-                categoryTitle = currentCategory.arabicTitle!
-                cell.categoryLabel.text = "\(categoryTitle). (\(itemCount ?? "0"))"
-                cell.categoryImageImageView.kf.setImage(with: imageResource, placeholder: UIImage(named: "cat_no_img"), options: nil, progressBlock: nil, completionHandler: nil)
-            } else if cell.isKind(of: UICollectionViewCell.self) {
-                cell.configureCell(withCategory: currentCategory, Resource: imageResource, andIsArabic: isArabic)
-            }
-        }
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let webApiUrl = generateApiUrl(usingCategoryId: Int32(indexPath.row), andCountryID: countryId)
-        let category = categories[indexPath.row]
-        
-        let subCategoriesVC = storyboard?.instantiateViewController(withIdentifier: "SubCategoriesViewController") as? SubCategoriesViewController
-        subCategoriesVC?.initWithData(webApiUrl: webApiUrl, isArabic: isArabic, andCategory: category)
-        self.present(subCategoriesVC!, animated: true, completion: nil)
-    }
     
     func fetchCategoriesData(webApiUrl: String, handler: @escaping(_ status: Bool) -> ()) {
         guard let managedContext = appDelegate?.persistentContainer.viewContext else {return}
@@ -144,9 +103,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBAction func languageButtonPressed(_ sender: Any) {
         if languageButton.currentTitle == "عربي" && isArabic == false  {
             languageButton.setTitle("English", for: UIControlState.normal)
+            languageButton.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 17)
             isArabic = true
         } else if languageButton.currentTitle == "English" && isArabic == true {
             languageButton.setTitle("عربي", for: UIControlState.normal)
+            languageButton.titleLabel?.font = UIFont(name: "GE Dinar One Medium", size: 17)
             isArabic = false
         }
         collectionView.reloadData()

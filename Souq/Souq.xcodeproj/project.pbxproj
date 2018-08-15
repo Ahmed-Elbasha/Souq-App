@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4A6AC2937012140B56E84F69 /* libPods-Souq.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97F5334BAC80EA2FD5D7E523 /* libPods-Souq.a */; };
+		7E427101212463F6009573B9 /* HomeUICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E427100212463F6009573B9 /* HomeUICollectionViewDelegate.swift */; };
+		7E427104212464D9009573B9 /* HomeViewControllerCustomMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E427103212464D9009573B9 /* HomeViewControllerCustomMethods.swift */; };
 		7E499D6821235AA6005EF290 /* SubCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E499D6721235AA6005EF290 /* SubCategoriesViewController.swift */; };
 		7E56A4102120968700A3421A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E56A40F2120968700A3421A /* AppDelegate.swift */; };
 		7E56A4122120968700A3421A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E56A4112120968700A3421A /* HomeViewController.swift */; };
@@ -26,6 +28,8 @@
 /* Begin PBXFileReference section */
 		2B35363E2712DA4B40E1678F /* Pods-Souq.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Souq.release.xcconfig"; path = "Pods/Target Support Files/Pods-Souq/Pods-Souq.release.xcconfig"; sourceTree = "<group>"; };
 		3D9A656426942AC30F0B5ECD /* Pods-Souq.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Souq.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Souq/Pods-Souq.debug.xcconfig"; sourceTree = "<group>"; };
+		7E427100212463F6009573B9 /* HomeUICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUICollectionViewDelegate.swift; sourceTree = "<group>"; };
+		7E427103212464D9009573B9 /* HomeViewControllerCustomMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerCustomMethods.swift; sourceTree = "<group>"; };
 		7E499D6721235AA6005EF290 /* SubCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoriesViewController.swift; sourceTree = "<group>"; };
 		7E56A40C2120968700A3421A /* Souq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Souq.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E56A40F2120968700A3421A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +74,66 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		7E4270FA212462E9009573B9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7E56A4112120968700A3421A /* HomeViewController.swift */,
+				7E499D6721235AA6005EF290 /* SubCategoriesViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7E4270FB21246316009573B9 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				7E56A4462120B35200A3421A /* GE Dinar One Medium.ttf */,
+				7E56A4452120B35200A3421A /* Montserrat-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		7E4270FC21246332009573B9 /* Custom Parts of Code */ = {
+			isa = PBXGroup;
+			children = (
+				7E56A4492120F67F00A3421A /* APIConfiguration.swift */,
+				7E74BF502121A36E007C909E /* collectionViewLayoutSetup.swift */,
+			);
+			path = "Custom Parts of Code";
+			sourceTree = "<group>";
+		};
+		7E4270FD21246364009573B9 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				7E74BF5C2121EEAA007C909E /* Localizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		7E4270FE21246387009573B9 /* Custom Class */ = {
+			isa = PBXGroup;
+			children = (
+				7E74BF522121E91F007C909E /* CategoryCollectionViewCell.swift */,
+			);
+			path = "Custom Class";
+			sourceTree = "<group>";
+		};
+		7E4270FF212463B3009573B9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7E427102212463FE009573B9 /* HomeViewController */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7E427102212463FE009573B9 /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7E427100212463F6009573B9 /* HomeUICollectionViewDelegate.swift */,
+				7E427103212464D9009573B9 /* HomeViewControllerCustomMethods.swift */,
+			);
+			path = HomeViewController;
+			sourceTree = "<group>";
+		};
 		7E56A4032120968700A3421A = {
 			isa = PBXGroup;
 			children = (
@@ -91,20 +155,18 @@
 		7E56A40E2120968700A3421A /* Souq */ = {
 			isa = PBXGroup;
 			children = (
+				7E4270FF212463B3009573B9 /* Extensions */,
+				7E4270FE21246387009573B9 /* Custom Class */,
+				7E4270FD21246364009573B9 /* Localization */,
+				7E4270FC21246332009573B9 /* Custom Parts of Code */,
+				7E4270FB21246316009573B9 /* Fonts */,
+				7E4270FA212462E9009573B9 /* Controller */,
 				7E56A40F2120968700A3421A /* AppDelegate.swift */,
-				7E56A4112120968700A3421A /* HomeViewController.swift */,
 				7E56A4132120968700A3421A /* Main.storyboard */,
-				7E56A4462120B35200A3421A /* GE Dinar One Medium.ttf */,
-				7E56A4452120B35200A3421A /* Montserrat-Regular.ttf */,
 				7E56A4192120968A00A3421A /* Assets.xcassets */,
 				7E56A41B2120968A00A3421A /* LaunchScreen.storyboard */,
 				7E56A41E2120968A00A3421A /* Info.plist */,
 				7E56A4162120968700A3421A /* Souq.xcdatamodeld */,
-				7E56A4492120F67F00A3421A /* APIConfiguration.swift */,
-				7E74BF502121A36E007C909E /* collectionViewLayoutSetup.swift */,
-				7E74BF522121E91F007C909E /* CategoryCollectionViewCell.swift */,
-				7E74BF5C2121EEAA007C909E /* Localizable.strings */,
-				7E499D6721235AA6005EF290 /* SubCategoriesViewController.swift */,
 			);
 			path = Souq;
 			sourceTree = "<group>";
@@ -215,11 +277,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E56A4122120968700A3421A /* HomeViewController.swift in Sources */,
+				7E427104212464D9009573B9 /* HomeViewControllerCustomMethods.swift in Sources */,
 				7E56A4102120968700A3421A /* AppDelegate.swift in Sources */,
 				7E56A4182120968700A3421A /* Souq.xcdatamodeld in Sources */,
 				7E56A44A2120F67F00A3421A /* APIConfiguration.swift in Sources */,
 				7E499D6821235AA6005EF290 /* SubCategoriesViewController.swift in Sources */,
 				7E74BF532121E91F007C909E /* CategoryCollectionViewCell.swift in Sources */,
+				7E427101212463F6009573B9 /* HomeUICollectionViewDelegate.swift in Sources */,
 				7E74BF512121A36E007C909E /* collectionViewLayoutSetup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

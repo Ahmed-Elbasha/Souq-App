@@ -30,7 +30,8 @@
                                         <rect key="frame" x="162.5" y="0.0" width="50" height="55"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nq0-fD-v2A">
-                                        <rect key="frame" x="329" y="12" width="31" height="30"/>
+                                        <rect key="frame" x="327" y="12" width="33" height="30"/>
+                                        <fontDescription key="fontDescription" name="GEDinarOne-Medium" family="GE Dinar One" pointSize="17"/>
                                         <state key="normal" title="عربي">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -226,7 +227,7 @@
                         <viewLayoutGuide key="safeArea" id="2fk-hy-LSF"/>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="twi-gU-mhh" id="Cir-sY-ddj"/>
+                        <outlet property="collectionView" destination="twi-gU-mhh" id="wTV-7G-61N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FKi-oe-fzp" sceneMemberID="firstResponder"/>
