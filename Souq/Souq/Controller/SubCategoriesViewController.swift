@@ -11,7 +11,7 @@ import CoreData
 import Alamofire
 import Kingfisher
 
-class SubCategoriesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class SubCategoriesViewController: UIViewController {
     
     @IBOutlet weak var categoryNameLabel: UILabel!
     @IBOutlet weak var languageButton: UIButton!
@@ -36,19 +36,6 @@ class SubCategoriesViewController: UIViewController, UICollectionViewDelegate, U
         self.webApiUrl = url
         self.isArabic = isArabic
         self.category = category
-    }
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 100
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as? CategoryCollectionViewCell else {return UICollectionViewCell()}
-        return UICollectionViewCell()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
     }
     
     @IBAction func languageButtonPressed(_ sender: Any) {

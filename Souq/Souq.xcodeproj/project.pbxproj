@@ -10,6 +10,8 @@
 		4A6AC2937012140B56E84F69 /* libPods-Souq.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97F5334BAC80EA2FD5D7E523 /* libPods-Souq.a */; };
 		7E427101212463F6009573B9 /* HomeUICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E427100212463F6009573B9 /* HomeUICollectionViewDelegate.swift */; };
 		7E427104212464D9009573B9 /* HomeViewControllerCustomMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E427103212464D9009573B9 /* HomeViewControllerCustomMethods.swift */; };
+		7E4271072124B93E009573B9 /* SubCategoriesViewControllerCustomMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4271062124B93E009573B9 /* SubCategoriesViewControllerCustomMethods.swift */; };
+		7E4271092124B997009573B9 /* SubCategoriesUICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4271082124B997009573B9 /* SubCategoriesUICollectionViewDelegate.swift */; };
 		7E499D6821235AA6005EF290 /* SubCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E499D6721235AA6005EF290 /* SubCategoriesViewController.swift */; };
 		7E56A4102120968700A3421A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E56A40F2120968700A3421A /* AppDelegate.swift */; };
 		7E56A4122120968700A3421A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E56A4112120968700A3421A /* HomeViewController.swift */; };
@@ -30,6 +32,8 @@
 		3D9A656426942AC30F0B5ECD /* Pods-Souq.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Souq.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Souq/Pods-Souq.debug.xcconfig"; sourceTree = "<group>"; };
 		7E427100212463F6009573B9 /* HomeUICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUICollectionViewDelegate.swift; sourceTree = "<group>"; };
 		7E427103212464D9009573B9 /* HomeViewControllerCustomMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerCustomMethods.swift; sourceTree = "<group>"; };
+		7E4271062124B93E009573B9 /* SubCategoriesViewControllerCustomMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoriesViewControllerCustomMethods.swift; sourceTree = "<group>"; };
+		7E4271082124B997009573B9 /* SubCategoriesUICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoriesUICollectionViewDelegate.swift; sourceTree = "<group>"; };
 		7E499D6721235AA6005EF290 /* SubCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoriesViewController.swift; sourceTree = "<group>"; };
 		7E56A40C2120968700A3421A /* Souq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Souq.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E56A40F2120968700A3421A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 		7E4270FF212463B3009573B9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				7E4271052124B920009573B9 /* SubCategoriesViewController */,
 				7E427102212463FE009573B9 /* HomeViewController */,
 			);
 			path = Extensions;
@@ -132,6 +137,15 @@
 				7E427103212464D9009573B9 /* HomeViewControllerCustomMethods.swift */,
 			);
 			path = HomeViewController;
+			sourceTree = "<group>";
+		};
+		7E4271052124B920009573B9 /* SubCategoriesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7E4271062124B93E009573B9 /* SubCategoriesViewControllerCustomMethods.swift */,
+				7E4271082124B997009573B9 /* SubCategoriesUICollectionViewDelegate.swift */,
+			);
+			path = SubCategoriesViewController;
 			sourceTree = "<group>";
 		};
 		7E56A4032120968700A3421A = {
@@ -276,7 +290,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E4271092124B997009573B9 /* SubCategoriesUICollectionViewDelegate.swift in Sources */,
 				7E56A4122120968700A3421A /* HomeViewController.swift in Sources */,
+				7E4271072124B93E009573B9 /* SubCategoriesViewControllerCustomMethods.swift in Sources */,
 				7E427104212464D9009573B9 /* HomeViewControllerCustomMethods.swift in Sources */,
 				7E56A4102120968700A3421A /* AppDelegate.swift in Sources */,
 				7E56A4182120968700A3421A /* Souq.xcdatamodeld in Sources */,
