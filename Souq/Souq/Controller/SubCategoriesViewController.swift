@@ -28,8 +28,16 @@ class SubCategoriesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setCollectionViewLayout(collectionView: collectionView, itemWidth: screenWidth, itemHeight: screenHeight)
-        // Do any additional setup after loading the view.
+        setCollectionViewLayout(collectionView: collectionView, itemWidth: 182, itemHeight: 158)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if isArabic == false {
+            categoryNameLabel.text = category.englishTitle
+        } else {
+            categoryNameLabel.text = category.arabicTitle
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,6 +55,7 @@ class SubCategoriesViewController: UIViewController {
     }
     
     @IBAction func returnButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
