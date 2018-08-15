@@ -26,6 +26,9 @@ class HomeViewController: UIViewController {
     var screenHeight: CGFloat!
     var isArabic: Bool = false
     
+    var webApiUrl = ""
+    var category: Category!
+    
     // MARK: View Controller Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()

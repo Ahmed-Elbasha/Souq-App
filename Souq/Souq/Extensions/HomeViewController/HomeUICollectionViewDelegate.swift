@@ -52,10 +52,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     // MARK: The action performed when a cell selected.
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let webApiUrl = generateApiUrl(usingCategoryId: Int32(indexPath.row), andCountryID: countryId)
-        let category = categories[indexPath.row]
-        
-        guard let subCategoriesVC = storyboard?.instantiateViewController(withIdentifier: "SubCategoriesViewController") as? SubCategoriesViewController else {return}
+        webApiUrl = generateApiUrl(usingCategoryId: Int32(indexPath.row), andCountryID: countryId)
+        category = categories[indexPath.row]
+        let subCategoriesVC = storyboard?.instantiateViewController(withIdentifier: "SubCategoriesViewController") as! SubCategoriesViewController
         subCategoriesVC.initWithData(webApiUrl: webApiUrl, isArabic: isArabic, andCategory: category)
         self.present(subCategoriesVC, animated: true, completion: nil)
     }
