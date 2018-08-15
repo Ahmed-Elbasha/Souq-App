@@ -14,10 +14,12 @@ import Kingfisher
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
+    // MARK: Number of Items in Section
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count
     }
     
+    // MARK: Create Cell.
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as? CategoryCollectionViewCell else {return UICollectionViewCell()}
         let currentCategory = categories[indexPath.row]
@@ -48,12 +50,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return cell
     }
     
+    // MARK: The action performed when a cell selected.
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let webApiUrl = generateApiUrl(usingCategoryId: Int32(indexPath.row), andCountryID: countryId)
         let category = categories[indexPath.row]
         
-        let subCategoriesVC = storyboard?.instantiateViewController(withIdentifier: "SubCategoriesViewController") as? SubCategoriesViewController
-        subCategoriesVC?.initWithData(webApiUrl: webApiUrl, isArabic: isArabic, andCategory: category)
-        self.present(subCategoriesVC!, animated: true, completion: nil)
+        guard let subCategoriesVC = storyboard?.instantiateViewController(withIdentifier: "SubCategoriesViewController") as? SubCategoriesViewController else {return}
+        subCategoriesVC.initWithData(webApiUrl: webApiUrl, isArabic: isArabic, andCategory: category)
+        self.present(subCategoriesVC, animated: true, completion: nil)
     }
 }
