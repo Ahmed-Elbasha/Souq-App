@@ -13,6 +13,8 @@ import Kingfisher
 
 class SubCategoriesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
+    @IBOutlet weak var categoryNameLabel: UILabel!
+    @IBOutlet weak var languageButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     
     var webApiUrl = ""
@@ -48,4 +50,11 @@ class SubCategoriesViewController: UIViewController, UICollectionViewDelegate, U
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
     }
+    
+    @IBAction func languageButtonPressed(_ sender: Any) {
+    }
+    
+    @IBAction func returnButtonPressed(_ sender: Any) {
+    }
+    
 }

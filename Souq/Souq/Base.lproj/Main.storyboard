@@ -102,7 +102,6 @@
                                         <connections>
                                             <outlet property="categoryImageImageView" destination="dQR-rj-PpQ" id="6y7-mH-v3g"/>
                                             <outlet property="categoryLabel" destination="TBP-AG-kvb" id="48Z-Im-ORn"/>
-                                            <segue destination="qCG-Vy-Fjr" kind="presentation" identifier="MoveToSubCategoriesViewController" id="3qf-pn-Bqt"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -140,17 +139,125 @@
                     <view key="view" contentMode="scaleToFill" id="EWN-Ef-pfH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vhq-xJ-G6U">
+                                <rect key="frame" x="0.0" y="75" width="375" height="592"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NC3-14-vFs">
+                                    <size key="itemSize" width="179" height="158"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categoryCell" id="9Rh-Q0-9GE">
+                                        <rect key="frame" x="0.0" y="0.0" width="179" height="158"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="179" height="158"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E6X-c2-jQu">
+                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="158"/>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QYl-Wb-KC7">
+                                                    <rect key="frame" x="0.0" y="122" width="179" height="36"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="هنا الكاتيجوري" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q69-KO-jCy">
+                                                            <rect key="frame" x="8" y="7" width="164" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="GEDinarOne-Medium" family="GE Dinar One" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <color key="shadowColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.16079837329999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="E6X-c2-jQu" firstAttribute="leading" secondItem="9Rh-Q0-9GE" secondAttribute="leading" id="BKh-sh-Lo9"/>
+                                            <constraint firstAttribute="trailing" secondItem="E6X-c2-jQu" secondAttribute="trailing" constant="-1" id="O5l-OU-0Uy"/>
+                                            <constraint firstItem="E6X-c2-jQu" firstAttribute="top" secondItem="9Rh-Q0-9GE" secondAttribute="top" id="OpE-Gd-Reu"/>
+                                            <constraint firstItem="QYl-Wb-KC7" firstAttribute="top" secondItem="9Rh-Q0-9GE" secondAttribute="top" constant="122" id="YXS-Xc-OXR"/>
+                                            <constraint firstAttribute="trailing" secondItem="QYl-Wb-KC7" secondAttribute="trailing" id="aRP-6n-5FE"/>
+                                            <constraint firstItem="QYl-Wb-KC7" firstAttribute="leading" secondItem="9Rh-Q0-9GE" secondAttribute="leading" id="cXe-ja-jYb"/>
+                                            <constraint firstAttribute="bottom" secondItem="E6X-c2-jQu" secondAttribute="bottom" id="eXN-RQ-934"/>
+                                            <constraint firstAttribute="bottom" secondItem="QYl-Wb-KC7" secondAttribute="bottom" id="tZD-hz-HZw"/>
+                                        </constraints>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kI6-y6-XcI">
+                                <rect key="frame" x="0.0" y="20" width="375" height="55"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rA-gE-kDa">
+                                        <rect key="frame" x="327" y="12" width="33" height="30"/>
+                                        <fontDescription key="fontDescription" name="GEDinarOne-Medium" family="GE Dinar One" pointSize="17"/>
+                                        <state key="normal" title="عربي">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="languageButtonPressed:" destination="qCG-Vy-Fjr" eventType="touchUpInside" id="193-Jl-1dU"/>
+                                            <action selector="languageButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qLL-4O-HAr"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="آسم الكاتيجوري" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qY7-CU-olf">
+                                        <rect key="frame" x="134" y="18" width="107" height="19"/>
+                                        <fontDescription key="fontDescription" name="GEDinarOne-Medium" family="GE Dinar One" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JhG-Fs-ge1">
+                                        <rect key="frame" x="16" y="10" width="34" height="34"/>
+                                        <state key="normal" image="top_bar_back"/>
+                                        <connections>
+                                            <action selector="returnButtonPressed:" destination="qCG-Vy-Fjr" eventType="touchUpInside" id="JtC-O4-CeI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1843137255" green="0.24313725489999999" blue="0.30588235289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="qY7-CU-olf" firstAttribute="centerY" secondItem="kI6-y6-XcI" secondAttribute="centerY" id="B7x-41-fJE"/>
+                                    <constraint firstItem="6rA-gE-kDa" firstAttribute="top" secondItem="kI6-y6-XcI" secondAttribute="top" constant="12" id="EpO-Pm-giU"/>
+                                    <constraint firstItem="qY7-CU-olf" firstAttribute="centerX" secondItem="kI6-y6-XcI" secondAttribute="centerX" id="Gay-vq-52y"/>
+                                    <constraint firstItem="JhG-Fs-ge1" firstAttribute="centerY" secondItem="kI6-y6-XcI" secondAttribute="centerY" id="RKl-n8-qGk"/>
+                                    <constraint firstAttribute="height" constant="55" id="Xxy-C5-Slb"/>
+                                    <constraint firstAttribute="bottom" secondItem="6rA-gE-kDa" secondAttribute="bottom" constant="13" id="cGS-fX-EPZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="6rA-gE-kDa" secondAttribute="trailing" constant="15" id="ey7-9q-8Zk"/>
+                                    <constraint firstItem="JhG-Fs-ge1" firstAttribute="leading" secondItem="kI6-y6-XcI" secondAttribute="leading" constant="16" id="oPb-ym-r6N"/>
+                                    <constraint firstItem="6rA-gE-kDa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kI6-y6-XcI" secondAttribute="leading" constant="20" symbolic="YES" id="uId-Jv-7UY"/>
+                                    <constraint firstItem="6rA-gE-kDa" firstAttribute="centerY" secondItem="kI6-y6-XcI" secondAttribute="centerY" id="wNB-GA-g9d"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kI6-y6-XcI" firstAttribute="leading" secondItem="YJA-1Y-a55" secondAttribute="leading" id="B85-Zb-lh0"/>
+                            <constraint firstItem="vhq-xJ-G6U" firstAttribute="bottom" secondItem="YJA-1Y-a55" secondAttribute="bottom" id="Tb6-Tw-J18"/>
+                            <constraint firstItem="kI6-y6-XcI" firstAttribute="top" secondItem="YJA-1Y-a55" secondAttribute="top" id="Uap-cw-YtU"/>
+                            <constraint firstItem="vhq-xJ-G6U" firstAttribute="leading" secondItem="YJA-1Y-a55" secondAttribute="leading" id="iWU-yB-hzF"/>
+                            <constraint firstItem="vhq-xJ-G6U" firstAttribute="top" secondItem="kI6-y6-XcI" secondAttribute="bottom" id="upJ-Ie-HoG"/>
+                            <constraint firstItem="kI6-y6-XcI" firstAttribute="trailing" secondItem="YJA-1Y-a55" secondAttribute="trailing" id="uyp-Ra-TU0"/>
+                            <constraint firstItem="vhq-xJ-G6U" firstAttribute="trailing" secondItem="YJA-1Y-a55" secondAttribute="trailing" id="xVl-vn-TQl"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="YJA-1Y-a55"/>
                     </view>
+                    <connections>
+                        <outlet property="categoryNameLabel" destination="qY7-CU-olf" id="cNZ-VW-mFv"/>
+                        <outlet property="collectionView" destination="vhq-xJ-G6U" id="jgz-o2-Ppe"/>
+                        <outlet property="languageButton" destination="6rA-gE-kDa" id="3j5-rE-ArE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5X0-A8-GCc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="834" y="118"/>
+            <point key="canvasLocation" x="832.79999999999995" y="117.39130434782609"/>
         </scene>
     </scenes>
     <resources>
         <image name="cat_no_img" width="127" height="112"/>
+        <image name="top_bar_back" width="34" height="34"/>
         <image name="top_bar_logo" width="50" height="37"/>
     </resources>
 </document>
