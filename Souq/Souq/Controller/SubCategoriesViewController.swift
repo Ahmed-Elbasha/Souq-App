@@ -17,8 +17,8 @@ class SubCategoriesViewController: UIViewController {
     @IBOutlet weak var languageButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var categoriesArray = [Category]()
-    var imageUrls = [String]()
+    var categoriesArray: [Category]!
+    var imageUrls: [String]!
     var screenWidth: CGFloat!
     var screenHeight: CGFloat!
     
@@ -80,6 +80,30 @@ class SubCategoriesViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func storeCategoriesIntoArray(completion: (_ status: Bool) ->() ) {
+        let managedContext = appDelegate?.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<Category>(entityName: "Category")
+        
+        do {
+            categoriesArray = try managedContext?.fetch(fetchRequest)
+            
+            for category in categoriesArray {
+                let categoryImageUrl = category.photoUrl
+                imageUrls.append(categoryImageUrl!)
+            }
+            
+            print("Data Fetched Successfully")
+            completion(true)
+        } catch {
+            print("Operation Failed. \(error.localizedDescription)")
+            completion(false)
+        }
+    }
+    
+    func performDataFetch(webApiUrl: String) {
+        
     }
     
     @IBAction func languageButtonPressed(_ sender: Any) {
