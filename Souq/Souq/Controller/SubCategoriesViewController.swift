@@ -103,10 +103,28 @@ class SubCategoriesViewController: UIViewController {
     }
     
     func performDataFetch(webApiUrl: String) {
-        
+        fetchCategoriesData(webApiUrl: webApiUrl) { (complete) in
+            if complete {
+                self.storeCategoriesIntoArray(completion: { (complete) in
+                    if complete {
+                        self.collectionView.reloadData()
+                    }
+                })
+            }
+        }
     }
     
     @IBAction func languageButtonPressed(_ sender: Any) {
+        if languageButton.currentTitle == "عربي" && isArabic == false {
+            languageButton.setTitle("English", for: .normal)
+            categoryNameLabel.text = category.arabicTitle
+            isArabic = true
+        } else if languageButton.currentTitle == "English" && isArabic == true {
+            languageButton.setTitle("عربي", for: .normal)
+            categoryNameLabel.text = category.englishTitle
+            isArabic = false
+        }
+        collectionView.reloadData()
     }
     
     @IBAction func returnButtonPressed(_ sender: Any) {
