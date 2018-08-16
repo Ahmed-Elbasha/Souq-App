@@ -33,7 +33,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 categoryTitle = currentCategory.englishTitle!
                 cell.categoryLabel.text = "\(categoryTitle). (\(itemCount ?? "0"))"
                 cell.categoryLabel.font = UIFont(name: "Montserrat-Regular", size: 17)
-                cell.categoryImageImageView.kf.setImage(with: imageResource, placeholder: UIImage(named: "cat_no_img"), options: nil, progressBlock: nil, completionHandler: nil)
+                
+                if currentImageUrl == "http://souq.hardtask.co//Images/no_image.png" {
+                    cell.categoryImageImageView.image = UIImage(named: "cat_no_img")
+                } else {
+                    cell.categoryImageImageView.kf.setImage(with: imageResource)
+                }
+                
             } else if cell.isKind(of: CategoryCollectionViewCell.self) {
                 cell.configureCell(withCategory: currentCategory, Resource: imageResource, andIsArabic: isArabic)
             }
@@ -42,7 +48,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 categoryTitle = currentCategory.arabicTitle!
                 cell.categoryLabel.text = "\(categoryTitle). (\(itemCount ?? "0"))"
                 cell.categoryLabel.font = UIFont(name: "GE Dinar One Medium", size: 17)
-                cell.categoryImageImageView.kf.setImage(with: imageResource, placeholder: UIImage(named: "cat_no_img"), options: nil, progressBlock: nil, completionHandler: nil)
+                
+                if currentImageUrl == "http://souq.hardtask.co//Images/no_image.png" {
+                    cell.categoryImageImageView.image = UIImage(named: "cat_no_img")
+                } else {
+                    cell.categoryImageImageView.kf.setImage(with: imageResource)
+                }
+                
             } else if cell.isKind(of: CategoryCollectionViewCell.self) {
                 cell.configureCell(withCategory: currentCategory, Resource: imageResource, andIsArabic: isArabic)
             }
@@ -52,7 +64,14 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     // MARK: The action performed when a cell selected.
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        webApiUrl = generateApiUrl(usingCategoryId: Int32(indexPath.row), andCountryID: countryId)
+        
+        var categoryId = indexPath.row
+        
+        if  categoryId == 0 {
+            categoryId = indexPath.row + 1
+        }
+        
+        webApiUrl = generateApiUrl(usingCategoryId: Int32(categoryId), andCountryID: countryId)
         category = categories[indexPath.row]
         let subCategoriesVC = storyboard?.instantiateViewController(withIdentifier: "SubCategoriesViewController") as! SubCategoriesViewController
         subCategoriesVC.initWithData(webApiUrl: webApiUrl, isArabic: isArabic, andCategory: category)

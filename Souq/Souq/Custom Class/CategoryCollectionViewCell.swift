@@ -21,16 +21,26 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         let itemCount = category.productCount
         
         if isArabic == false {
-                categoryTitle = category.englishTitle!
-                categoryLabel.text = "\(categoryTitle). (\(itemCount ?? "0"))"
-                categoryLabel.font = UIFont(name: "Montserrat-Regular", size: 17)
-                categoryImageImageView.kf.setImage(with: resource, placeholder: UIImage(named: "cat_no_img"), options: nil, progressBlock: nil, completionHandler: nil)
+            categoryTitle = category.englishTitle!
+            categoryLabel.text = "\(categoryTitle). (\(itemCount ?? "0"))"
+            categoryLabel.font = UIFont(name: "Montserrat-Regular", size: 17)
+            
+            if category.photoUrl == "http://souq.hardtask.co//Images/no_image.png" {
+                categoryImageImageView.image = UIImage(named: "cat_no_img")
+            } else {
+                categoryImageImageView.kf.setImage(with: resource)
+            }
 
         } else {
                 categoryTitle = category.arabicTitle!
                 categoryLabel.text = "\(categoryTitle). (\(itemCount ?? "0"))"
                 categoryLabel.font = UIFont(name: "GE Dinar One Medium", size: 17)
-                categoryImageImageView.kf.setImage(with: resource, placeholder: UIImage(named: "cat_no_img"), options: nil, progressBlock: nil, completionHandler: nil)
+            
+            if category.photoUrl == "http://souq.hardtask.co//Images/no_image.png" {
+                categoryImageImageView.image = UIImage(named: "cat_no_img")
+            } else {
+                categoryImageImageView.kf.setImage(with: resource)
+            }
             }
         }
     }

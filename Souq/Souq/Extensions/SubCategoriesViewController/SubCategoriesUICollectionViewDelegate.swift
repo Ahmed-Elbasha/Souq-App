@@ -20,6 +20,7 @@ extension SubCategoriesViewController: UICollectionViewDelegate, UICollectionVie
         
         let currentCategory = categoriesArray[indexPath.row]
         let currentImageUrl = imageUrls[indexPath.row]
+        
         let imageResource = ImageResource(downloadURL: URL(string: currentImageUrl)!)
 
         var categoryTitle = ""
@@ -30,7 +31,15 @@ extension SubCategoriesViewController: UICollectionViewDelegate, UICollectionVie
                 categoryTitle = category.englishTitle!
                 categoryNameLabel.text = "\(categoryTitle). (\(productCount ?? "0"))"
                 categoryNameLabel.font = UIFont(name: "GE Dinar One Medium", size: 17)
-                cell.categoryImageImageView.kf.setImage(with: imageResource, placeholder: UIImage(named: "cat_no_img"), options: nil, progressBlock: nil, completionHandler: nil)
+                
+                let emptyStateImage = #imageLiteral(resourceName: "cat_no_img")
+                
+                if currentImageUrl == "http://souq.hardtask.co//Images/no_image.png" {
+                    cell.categoryImageImageView.image = emptyStateImage
+                } else {
+                    cell.categoryImageImageView.kf.setImage(with: imageResource)
+                }
+                
             } else if cell.isKind(of: CategoryCollectionViewCell.self) {
                 cell.configureCell(withCategory: currentCategory, Resource: imageResource, andIsArabic: isArabic)
             }
@@ -39,7 +48,13 @@ extension SubCategoriesViewController: UICollectionViewDelegate, UICollectionVie
                 categoryTitle = category.arabicTitle!
                 categoryNameLabel.text = "\(categoryTitle). (\(productCount ?? "0"))"
                 categoryNameLabel.font = UIFont(name: "GE Dinar One Medium", size: 17)
-                cell.categoryImageImageView.kf.setImage(with: imageResource, placeholder: UIImage(named: "cat_no_img"), options: nil, progressBlock: nil, completionHandler: nil)
+                
+                if currentImageUrl == "http://souq.hardtask.co//Images/no_image.png" {
+                    cell.categoryImageImageView.image = UIImage(named: "cat_no_img")
+                } else {
+                    cell.categoryImageImageView.kf.setImage(with: imageResource)
+                }
+                
             } else if cell.isKind(of: CategoryCollectionViewCell.self) {
                 cell.configureCell(withCategory: currentCategory, Resource: imageResource, andIsArabic: isArabic)
             }

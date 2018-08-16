@@ -90,8 +90,10 @@ class SubCategoriesViewController: UIViewController {
         do {
             categoriesArray = (try managedContext?.fetch(fetchRequest))!
             for category in categoriesArray {
-                let categoryImageUrl = category.photoUrl
-                imageUrls.append(categoryImageUrl!)
+                
+                let categoryImageUrl = "http://souq.hardtask.co//Images/no_image.png"
+                imageUrls.append(categoryImageUrl)
+                
             }
             
             print("Data Fetched Successfully")
