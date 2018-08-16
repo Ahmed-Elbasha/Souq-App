@@ -17,8 +17,8 @@ class SubCategoriesViewController: UIViewController {
     @IBOutlet weak var languageButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var categoriesArray: [Category]!
-    var imageUrls: [String]!
+    var categoriesArray = [Category]()
+    var imageUrls = [String]()
     var screenWidth: CGFloat!
     var screenHeight: CGFloat!
     
@@ -33,6 +33,7 @@ class SubCategoriesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        performDataFetch(webApiUrl: webApiUrl)
         if isArabic == false {
             categoryNameLabel.text = category.englishTitle
         } else {
@@ -59,6 +60,7 @@ class SubCategoriesViewController: UIViewController {
             guard let categories = response.result.value as? [Dictionary<String, AnyObject>] else {return}
             for category in categories {
                 let newCategory = NSManagedObject(entity: categoryEntity!, insertInto: managedContext)
+                
                 let categoryId = category["Id"] as! Int32
                 newCategory.setValue(categoryId, forKey: "categoryId")
                 let englishTitle = category["TitleEN"] as! String
@@ -79,16 +81,14 @@ class SubCategoriesViewController: UIViewController {
                     handler(false)
                 }
             }
-        }
-    }
+        }    }
     
     func storeCategoriesIntoArray(completion: (_ status: Bool) ->() ) {
         let managedContext = appDelegate?.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<Category>(entityName: "Category")
-        
+
         do {
-            categoriesArray = try managedContext?.fetch(fetchRequest)
-            
+            categoriesArray = (try managedContext?.fetch(fetchRequest))!
             for category in categoriesArray {
                 let categoryImageUrl = category.photoUrl
                 imageUrls.append(categoryImageUrl!)
@@ -117,10 +117,12 @@ class SubCategoriesViewController: UIViewController {
     @IBAction func languageButtonPressed(_ sender: Any) {
         if languageButton.currentTitle == "عربي" && isArabic == false {
             languageButton.setTitle("English", for: .normal)
+            languageButton.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 17)
             categoryNameLabel.text = category.arabicTitle
             isArabic = true
         } else if languageButton.currentTitle == "English" && isArabic == true {
             languageButton.setTitle("عربي", for: .normal)
+            languageButton.titleLabel?.font = UIFont(name: "GE Dinar One Medium", size: 17)
             categoryNameLabel.text = category.englishTitle
             isArabic = false
         }
