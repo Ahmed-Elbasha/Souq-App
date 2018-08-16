@@ -11,10 +11,13 @@ import UIKit
 import Kingfisher
 
 extension SubCategoriesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    // MARK: Number of Items in Section
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categoriesArray.count
     }
     
+    // MARK: Create Cell.
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as? CategoryCollectionViewCell else {return UICollectionViewCell()}
         
