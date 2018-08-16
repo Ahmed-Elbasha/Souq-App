@@ -6,8 +6,9 @@
         <attribute name="englishTitle" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="photoUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="productCount" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="subCategories" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Category" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Category" positionX="-63" positionY="-18" width="128" height="135"/>
     </elements>
 </model>

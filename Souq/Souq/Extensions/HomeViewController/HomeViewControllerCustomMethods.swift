@@ -34,6 +34,8 @@ extension HomeViewController {
                 newCategory.setValue(photoUrl, forKey: "photoUrl")
                 let productCount = category["ProductCount"] as! String
                 newCategory.setValue(productCount, forKey: "productCount")
+                guard let subCategories = category["SubCategories"] as? [Dictionary<String, AnyObject>] else {return}
+                newCategory.setValue(subCategories.count, forKey: "subCategories")
                 
                 do {
                     try managedContext.save()
