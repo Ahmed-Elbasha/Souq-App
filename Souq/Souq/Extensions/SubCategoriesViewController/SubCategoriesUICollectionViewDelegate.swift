@@ -33,7 +33,7 @@ extension SubCategoriesViewController: UICollectionViewDelegate, UICollectionVie
             if cell.isKind(of: UICollectionViewCell.self) {
                 categoryTitle = category.englishTitle!
                 categoryNameLabel.text = "\(categoryTitle). (\(productCount ?? "0"))"
-                categoryNameLabel.font = UIFont(name: "GE Dinar One Medium", size: 17)
+                categoryNameLabel.font = UIFont(name: "Montserrat", size: 17)
                 
                 let emptyStateImage = #imageLiteral(resourceName: "cat_no_img")
                 
@@ -50,7 +50,7 @@ extension SubCategoriesViewController: UICollectionViewDelegate, UICollectionVie
             if cell.isKind(of: UICollectionViewCell.self) {
                 categoryTitle = category.arabicTitle!
                 categoryNameLabel.text = "\(categoryTitle). (\(productCount ?? "0"))"
-                categoryNameLabel.font = UIFont(name: "GE Dinar One Medium", size: 17)
+                categoryNameLabel.font = UIFont(name: "GE Dinar One", size: 17)
                 
                 if currentImageUrl == "http://souq.hardtask.co//Images/no_image.png" {
                     cell.categoryImageImageView.image = UIImage(named: "cat_no_img")

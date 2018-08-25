@@ -53,12 +53,12 @@ class SubCategoriesViewController: UIViewController {
     @IBAction func languageButtonPressed(_ sender: Any) {
         if languageButton.currentTitle == "عربي" && isArabic == false {
             languageButton.setTitle("English", for: .normal)
-            languageButton.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 17)
+            languageButton.titleLabel?.font = UIFont(name: "Montserrat", size: 17)
             categoryNameLabel.text = category.arabicTitle
             isArabic = true
         } else if languageButton.currentTitle == "English" && isArabic == true {
             languageButton.setTitle("عربي", for: .normal)
-            languageButton.titleLabel?.font = UIFont(name: "GE Dinar One Medium", size: 17)
+            languageButton.titleLabel?.font = UIFont(name: "GE Dinar One", size: 17)
             categoryNameLabel.text = category.englishTitle
             isArabic = false
         }

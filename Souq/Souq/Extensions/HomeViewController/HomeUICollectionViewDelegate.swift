@@ -32,7 +32,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             if cell.isKind(of: UICollectionViewCell.self) {
                 categoryTitle = currentCategory.englishTitle!
                 cell.categoryLabel.text = "\(categoryTitle). (\(itemCount ?? "0"))"
-                cell.categoryLabel.font = UIFont(name: "Montserrat-Regular", size: 17)
+                cell.categoryLabel.font = UIFont(name: "Montserrat", size: 17)
                 
                 if currentImageUrl == "http://souq.hardtask.co//Images/no_image.png" {
                     cell.categoryImageImageView.image = UIImage(named: "cat_no_img")
@@ -47,7 +47,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             if cell.isKind(of: UICollectionViewCell.self) {
                 categoryTitle = currentCategory.arabicTitle!
                 cell.categoryLabel.text = "\(categoryTitle). (\(itemCount ?? "0"))"
-                cell.categoryLabel.font = UIFont(name: "GE Dinar One Medium", size: 17)
+                cell.categoryLabel.font = UIFont(name: "GE Dinar One", size: 17)
                 
                 if currentImageUrl == "http://souq.hardtask.co//Images/no_image.png" {
                     cell.categoryImageImageView.image = UIImage(named: "cat_no_img")

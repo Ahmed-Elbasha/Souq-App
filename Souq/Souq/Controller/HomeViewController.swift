@@ -43,11 +43,11 @@ class HomeViewController: UIViewController {
     @IBAction func languageButtonPressed(_ sender: Any) {
         if languageButton.currentTitle == "عربي" && isArabic == false  {
             languageButton.setTitle("English", for: UIControlState.normal)
-            languageButton.titleLabel?.font = UIFont(name: "Montserrat-Regular", size: 17)
+            languageButton.titleLabel?.font = UIFont(name: "Montserrat", size: 17)
             isArabic = true
         } else if languageButton.currentTitle == "English" && isArabic == true {
             languageButton.setTitle("عربي", for: UIControlState.normal)
-            languageButton.titleLabel?.font = UIFont(name: "GE Dinar One Medium", size: 17)
+            languageButton.titleLabel?.font = UIFont(name: "GE Dinar One", size: 17)
             isArabic = false
         }
         collectionView.reloadData()

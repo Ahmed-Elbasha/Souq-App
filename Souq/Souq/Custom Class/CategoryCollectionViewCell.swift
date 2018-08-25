@@ -23,7 +23,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         if isArabic == false {
             categoryTitle = category.englishTitle!
             categoryLabel.text = "\(categoryTitle). (\(itemCount ?? "0"))"
-            categoryLabel.font = UIFont(name: "Montserrat-Regular", size: 17)
+            categoryLabel.font = UIFont(name: "Montserrat", size: 17)
             
             if category.photoUrl == "http://souq.hardtask.co//Images/no_image.png" {
                 categoryImageImageView.image = UIImage(named: "cat_no_img")
@@ -34,7 +34,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         } else {
                 categoryTitle = category.arabicTitle!
                 categoryLabel.text = "\(categoryTitle). (\(itemCount ?? "0"))"
-                categoryLabel.font = UIFont(name: "GE Dinar One Medium", size: 17)
+                categoryLabel.font = UIFont(name: "GE Dinar One", size: 17)
             
             if category.photoUrl == "http://souq.hardtask.co//Images/no_image.png" {
                 categoryImageImageView.image = UIImage(named: "cat_no_img")
