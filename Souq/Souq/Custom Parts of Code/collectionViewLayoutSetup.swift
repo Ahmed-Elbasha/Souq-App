@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+// To optimize the shape of CollectionView and CollectionViewCells.
 func setCollectionViewLayout(collectionView: UICollectionView, itemWidth: CGFloat, itemHeight: CGFloat) {
     let collectionLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
     collectionLayout.sectionInset = UIEdgeInsetsMake(10, 15, 0, 15)

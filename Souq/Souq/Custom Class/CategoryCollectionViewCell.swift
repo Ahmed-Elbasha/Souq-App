@@ -11,15 +11,21 @@ import Kingfisher
 
 class CategoryCollectionViewCell: UICollectionViewCell {
     
+    // MARK: IBOutlets
     @IBOutlet weak var categoryImageImageView: UIImageView!
     @IBOutlet weak var categoryLabel: UILabel!
     
-    var fullCategoryLabelValue = ""
-    
+    // This method configures how the cell will be shaped
     func configureCell(withCategory category: Category, Resource resource: ImageResource, andIsArabic isArabic: Bool) {
+        
+        // to store the current category title in Arabic or in English.
         var categoryTitle = ""
+        
+        // to store the count of products in the current category
         let itemCount = category.productCount
         
+        
+        // In case that the language was in English we are going to show the category data in cell into English.
         if isArabic == false {
             categoryTitle = category.englishTitle!
             categoryLabel.text = "\(categoryTitle). (\(itemCount ?? "0"))"
@@ -32,6 +38,8 @@ class CategoryCollectionViewCell: UICollectionViewCell {
             }
 
         } else {
+            // In case that the language was in Arabic we are going to show the category data in cell into Arabic.
+            
                 categoryTitle = category.arabicTitle!
                 categoryLabel.text = "\(categoryTitle). (\(itemCount ?? "0"))"
                 categoryLabel.font = UIFont(name: "GE Dinar One", size: 17)

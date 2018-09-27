@@ -21,14 +21,22 @@ extension SubCategoriesViewController: UICollectionViewDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as? CategoryCollectionViewCell else {return UICollectionViewCell()}
         
+        // to be able to fill the cell with current category object data.
         let currentCategory = categoriesArray[indexPath.row]
-        let currentImageUrl = imageUrls[indexPath.row]
         
+        // to be able to show the current category image.
+        let currentImageUrl = imageUrls[indexPath.row]
         let imageResource = ImageResource(downloadURL: URL(string: currentImageUrl)!)
 
+        // to store the current category title in Arabic or in English.
         var categoryTitle = ""
+        
+        // to store the count of products in the current category
         let productCount = currentCategory.productCount
         
+        // In case that the language was in English we are going to show the category data in cell into English.
+        // if there any reuseable cell we will invoke the configureCell method so the custom cell can create it.
+        // if there is no existing cell then we will modify the attributes of the new cell here in English.
         if isArabic == false {
             if cell.isKind(of: UICollectionViewCell.self) {
                 categoryTitle = category.englishTitle!
@@ -47,6 +55,10 @@ extension SubCategoriesViewController: UICollectionViewDelegate, UICollectionVie
                 cell.configureCell(withCategory: currentCategory, Resource: imageResource, andIsArabic: isArabic)
             }
         } else if isArabic == true {
+            // In case that the language was in Arabic we are going to show the category data in cell into Arabic.
+            // if there any reuseable cell we will invoke the configureCell method so the custom cell can create it.
+            // if there is no existing cell then we will modify the attributes of the new cell here in Arabic.
+            
             if cell.isKind(of: UICollectionViewCell.self) {
                 categoryTitle = category.arabicTitle!
                 categoryNameLabel.text = "\(categoryTitle). (\(productCount ?? "0"))"
